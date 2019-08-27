@@ -23,7 +23,7 @@ import com.insper.iotserver.repository.DeviceRepository;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/device")
+@RequestMapping("/devices")
 public class DeviceController {
 
 	@Autowired
