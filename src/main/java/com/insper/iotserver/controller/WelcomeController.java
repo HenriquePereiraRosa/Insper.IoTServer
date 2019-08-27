@@ -25,6 +25,7 @@ public class WelcomeController {
 	public List<String> get() {
 		List<String> list = new ArrayList<>();
 		list.add("Welcome to INSPER IoT Server");
+		list.add("<a href:\"https://insper.edu.br\">Insper<a>" );
 		list.add("Please check out at insper.edu.br");
 		list.add("Today is: " + LocalDateTime.now(ZoneId.of("America/Sao_Paulo")));
 		list.add("Server is running on PORT: " + 

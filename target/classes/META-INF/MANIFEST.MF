@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
-Implementation-Title: iotServer
+Implementation-Title: insper.iotServer
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: henriquepr
-Implementation-Vendor-Id: com.helm
+Implementation-Vendor-Id: com.insper
 Build-Jdk: 1.8.0_221
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
- ot-starter-parent/iotServer
+ ot-starter-parent/insper.iotServer
 Created-By: Maven Integration for Eclipse
 
