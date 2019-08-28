@@ -52,7 +52,7 @@ public class TechnicianController {
 	@PostMapping
 	public ResponseEntity<Technician> post(@RequestBody Technician obj, HttpServletResponse response) {
 		
-		if (repo.findById(obj.getId()) != null) {
+		//if (repo.findById(obj.getId()) == null) {
 			Technician objSaved = repo.save(obj);
 
 			URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(objSaved.getId())
@@ -60,9 +60,9 @@ public class TechnicianController {
 			response.setHeader("Location", uri.toASCIIString());
 
 			return ResponseEntity.status(HttpStatus.CREATED).body(objSaved);
-		} else {
+		/*}  else {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-		}
+		} */
 	}
 	
 
