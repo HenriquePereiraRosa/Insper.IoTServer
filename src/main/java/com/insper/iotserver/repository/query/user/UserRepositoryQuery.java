@@ -1,10 +1,10 @@
-package com.insper.iotserver.repository.query.technician;
+package com.insper.iotserver.repository.query.user;
 
 import java.util.List;
 
-import com.insper.iotserver.model.Technician;
+import com.insper.iotserver.model.User;
 
-public interface TechnicianRepositoryQuery {
+public interface UserRepositoryQuery {
 
-	public List<Technician> getLastByDeviceId(Long id);
+	public List<User> getLastByDeviceId(Long id);
 }

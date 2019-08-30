@@ -18,51 +18,48 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.insper.iotserver.model.Technician;
-import com.insper.iotserver.repository.TechnicianRepository;
+import com.insper.iotserver.model.User;
+import com.insper.iotserver.repository.UserRepository;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/technicians")
-public class TechnicianController {
-
-	//@Autowired
-	//sprivate DeviceRepository deviceRepo;
+@RequestMapping("/user")
+public class UserController {
 
 	@Autowired
-	private TechnicianRepository repo;
+	private UserRepository repo;
 
 	@GetMapping
-	public List<Technician> get() {
+	public List<User> get() {
 		return repo.findAll();
 	}
 
 	@GetMapping("/last")
-	public Technician getLast() {
-		List<Technician> list = repo.findAll();
+	public User getLast() {
+		List<User> list = repo.findAll();
 		return list.get(list.size() - 1);
 	}
 
 	@GetMapping("/{id}/last")
-	public List<Technician> getLastItem(@PathVariable Long id) {
-		List<Technician> lastItem = repo.getLastByDeviceId(id);
+	public List<User> getLastItem(@PathVariable Long id) {
+		List<User> lastItem = repo.getLastByDeviceId(id);
 		return lastItem;
 	}
 
 	@PostMapping
-	public ResponseEntity<Technician> post(@RequestBody Technician obj, HttpServletResponse response) {
+	public ResponseEntity<User> post(@RequestBody User obj, HttpServletResponse response) {
 		
-		//if (repo.findById(obj.getId()) == null) {
-			Technician objSaved = repo.save(obj);
+		if (obj.getId() == null) {
+			User objSaved = repo.save(obj);
 
 			URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(objSaved.getId())
 					.toUri();
 			response.setHeader("Location", uri.toASCIIString());
 
 			return ResponseEntity.status(HttpStatus.CREATED).body(objSaved);
-		/*}  else {
+		} else {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-		} */
+		}
 	}
 	
 
@@ -79,14 +76,14 @@ public class TechnicianController {
 	 * @see         ...
 	 */
 	@PutMapping  // Designed to Embbeded Systems
-	public ResponseEntity<Technician> update(@RequestBody Technician obj,
+	public ResponseEntity<User> update(@RequestBody User obj,
 			HttpServletResponse response) {
 
-		Technician dbObj = repo.getOne(obj.getId());
-		if ((repo.findById(obj.getId()) != null)
+		User dbObj = repo.getOne(obj.getId());
+		if ((obj.getId() != null)
 				&& (dbObj != null) && (obj != null)) {
 
-			Technician objSaved = repo.save(copyObj(obj, dbObj));
+			User objSaved = repo.save(copyObj(obj, dbObj));
 
 			URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
 					.buildAndExpand(objSaved.getId())
@@ -109,7 +106,7 @@ public class TechnicianController {
 	 * @param  A Technician dbObj saved on DB whose need to be updated.
 	 * @return The updated object
 	 */
-	private Technician copyObj(Technician obj, Technician dbObj) {
+	private User copyObj(User obj, User dbObj) {
 		if (obj.getName() != null) {
 			dbObj.setName(obj.getName());
 		}

@@ -8,8 +8,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="technician")
-public class Technician {
+@Table(name="user")
+public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -89,7 +89,7 @@ public class Technician {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Technician other = (Technician) obj;
+		User other = (User) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

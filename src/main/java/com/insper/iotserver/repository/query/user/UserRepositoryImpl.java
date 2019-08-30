@@ -1,4 +1,4 @@
-package com.insper.iotserver.repository.query.technician;
+package com.insper.iotserver.repository.query.user;
 
 import java.util.List;
 
@@ -7,19 +7,19 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.insper.iotserver.model.Technician;
+import com.insper.iotserver.model.User;
 
-public class TechnicianRepositoryImpl implements TechnicianRepositoryQuery {
+public class UserRepositoryImpl implements UserRepositoryQuery {
 
 	@Autowired
 	private EntityManager manager;
 
-	public List<Technician> getLastByDeviceId(Long deviceId) {
+	public List<User> getLastByDeviceId(Long deviceId) {
 		StringBuffer stmt = new StringBuffer();
 		stmt.append("Select s from Color s join s.device d "
 				+ "where d.id like " + deviceId + " order by s.id desc");
-		TypedQuery<Technician> q = manager.createQuery(stmt.toString(), Technician.class);
-		List<Technician> last = q.setMaxResults(1).getResultList();
+		TypedQuery<User> q = manager.createQuery(stmt.toString(), User.class);
+		List<User> last = q.setMaxResults(1).getResultList();
 		System.out.println(last);
 		return last;
 	}
