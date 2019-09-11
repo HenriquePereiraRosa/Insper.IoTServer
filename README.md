@@ -9,21 +9,23 @@
  		<p>Repositório para dispositivos IoT do Laboratório de Desenvolvimento Colaborativo Ágil</p>
  	</h4>
  </div>
- <div>
+ <div align="center">
  	<div>
  	<h3><p>IoT is HERE!  \o/ \o/ \o/</p></h3>
- 	</div>
- 	<div style="display: flex;">
+ 	</div >
+ 	<div>
 	  <img style="width: 33%;" src="https://media0.giphy.com/media/YJ5OlVLZ2QNl6/giphy.gif" alt="Baby Yeah">
 	 </div>
 </div>
 
 
-<div align="center">  
+<div align="center">
+	
   [![Status](https://img.shields.io/badge/status-active-success.svg)]()
   [![GitHub Issues](https://img.shields.io/github/issues/henriquepereirarosa/insper.iotServer.svg)](https://github.com/HenriquePereiraRosa/insper.iotServer/issues)
   [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/henriquepereirarosa/insper.iotServer.svg)](https://github.com/HenriquePereiraRosa/insper.iotServer/pulls)
   [![License](https://img.shields.io/badge/license-CC0-blue.svg)](http://creativecommons.org/publicdomain/zero/1.0/)    
+
 </div>
 
 ---
@@ -33,35 +35,43 @@
 
 ## Table of Contents
 
-- [Conceito de desenvolvimento deste projeto](#concept)
-- [Primeira fase](#first)
-- [Segunda fase](#second)
-- [Terceira fase](#third)
-- [Testes jUnit](#tests)
-- [Execução do arquivo .jar](#exe)
+- [Concept of development](#concept)
+- [First Item](#first)
+- [Second fase](#second)
+- [Third fase](#third)
+- [Tests jUnit](#tests)
+- [Execution](#exe)
 
 
-## Conceito de desenvolvimento deste projeto <a name = "concept"></a>
+## Concept of development <a name = "concept"></a>
 
 - Utilizando os padrões de projeto... 
- 1. [Link 1Aquisição dos dados (Backend server e arquivo .log).](#first)
+ 1. [Link 1.](#first)
  2. [Link 2.](#second)
- 3. [Link3.](#third)
+ 3. [Link 3.](#third)
 
- 	E por fim foram concluídos os testes que foram implementados durante a implementação do projeto utilizando técnicas TDD.(#tests)
-
-
-## Link 1 fase<a name = "first"></a>
-
-**Conexão com o servidor e conversão do Json:**
-
-- A classe **HttpURLConnection** foi a responsável pelas requisições HTTP ao servidor.
-- Para produção da string foi utiliza a classe **StringBuffer** por possui uma melhor performance.
-- A biblioteca **Gson** Efetuou a conversão de JSON para ArrayListLink.
+ 	Tests.(#tests)
 
 
+## Link 1 <a name = "first"></a>
 
-## Executando o projeto <a name = "exe"></a>
+**Lorem Ipsum**
+
+- Lorem Ipsum.
+- Lorem Ipsum.
+- Lorem Ipsum.
+
+## Link 2 <a name = "second"></a>
+
+**Lorem Ipsum**
+
+- Lorem Ipsum.
+- Lorem Ipsum.
+- Lorem Ipsum.
+
+
+
+## Execution <a name = "exe"></a>
 
 1. O projeto foi desenvolvido na IDE Intellij 
 
