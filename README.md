@@ -2,8 +2,8 @@
 <h1 align="center">Inper.IoTServer</h1>
 
 <p align="center">
- <a href="inper.edu.br">
-  <img src="https://www.insper.edu.br/wp-content/themes/insper/dist/image/logo.png" alt="Insper logo"></img>
+ <a href="www.insper.edu.br">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmLK7EeLlfZmz2-3Fb6nzZH00dtbDlsqBpbFTALO8ktvnXaBxv" alt="Insper logo"></img>
  </a>
  <div>
  	<h4>
@@ -11,8 +11,10 @@
  	</h4>
  </div>
  <div>
- 	<p>IoT is HERE!  \o/\o/\o/\o/\o/\o/</p>
- 	<video autoplay loop class="" style="max-width: 100%; min-height: 728px;" data-video="0"><source type="video/mp4" src="//i.imgur.com/b3PnytZ.mp4"></video>
+ 	<h3><p>IoT is HERE!  \o/\o/\o/\o/\o/\o/</p></h3>
+ 	<video poster="//i.imgur.com/gJ5yh69h.jpg" preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="" style="width: 500px; height: 500px;" data-video="0">
+        <source src="//i.imgur.com/gJ5yh69.mp4" type="video/mp4">
+    </video>
  </div>
 </p>
 
