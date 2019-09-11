@@ -11,12 +11,15 @@
  	</h4>
  </div>
  <div>
+ 	<div>
  	<h3><p>IoT is HERE!  \o/\o/\o/\o/\o/\o/</p></h3>
- 	
-  <img src="https://media2.giphy.com/media/BlVnrxJgTGsUw/giphy.gif" alt="Three Jumping"></img>
-  <img src="https://media0.giphy.com/media/YJ5OlVLZ2QNl6/giphy.gif" alt="Baby Yeah"></img>
-  <img src="https://media1.giphy.com/media/XbxZ41fWLeRECPsGIJ/giphy.gif" alt="Baby Happy"></img>
+ 	</div>
+ 	<div style="display: flex;">
+  <img style="width: auto;" src="https://media2.giphy.com/media/BlVnrxJgTGsUw/giphy.gif" alt="Three Jumping"></img>
+  <img style="width: auto;" src="https://media0.giphy.com/media/YJ5OlVLZ2QNl6/giphy.gif" alt="Baby Yeah"></img>
+  <img style="width: auto;" src="https://media1.giphy.com/media/XbxZ41fWLeRECPsGIJ/giphy.gif" alt="Baby Happy"></img>
  </div>
+</div>
 </p>
 
 
