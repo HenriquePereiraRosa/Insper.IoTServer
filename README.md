@@ -12,20 +12,19 @@
  </div>
  <div>
  	<h3><p>IoT is HERE!  \o/\o/\o/\o/\o/\o/</p></h3>
- 	<video poster="//i.imgur.com/gJ5yh69h.jpg" preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="" style="width: 500px; height: 500px;" data-video="0">
-        <source src="//i.imgur.com/gJ5yh69.mp4" type="video/mp4">
-    </video>
+ 	
+  <img src="https://media2.giphy.com/media/BlVnrxJgTGsUw/giphy.gif" alt="Three Jumping"></img>
+  <img src="https://media0.giphy.com/media/YJ5OlVLZ2QNl6/giphy.gif" alt="Baby Yeah"></img>
+  <img src="https://media1.giphy.com/media/XbxZ41fWLeRECPsGIJ/giphy.gif" alt="Baby Happy"></img>
  </div>
 </p>
 
 
-<div align="center">
-  
+<div align="center">  
   [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-  [![GitHub Issues](https://img.shields.io/github/issues/henriquepereirarosa/backend-test.svg)](https://github.com/HenriquePereiraRosa/backend-test/issues)
-  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/henriquepereirarosa/backend-test.svg)](https://github.com/HenriquePereiraRosa/backend-test/pulls)
-  [![License](https://img.shields.io/badge/license-CC0-blue.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
-    
+  [![GitHub Issues](https://img.shields.io/github/issues/henriquepereirarosa/insper.iotServer.svg)](https://github.com/HenriquePereiraRosa/insper.iotServer/issues)
+  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/henriquepereirarosa/insper.iotServer.svg)](https://github.com/HenriquePereiraRosa/insper.iotServer/pulls)
+  [![License](https://img.shields.io/badge/license-CC0-blue.svg)](http://creativecommons.org/publicdomain/zero/1.0/)    
 </div>
 
 ---
