@@ -3,9 +3,8 @@
 
 <p align="center">
  <a href="www.insper.edu.br">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmLK7EeLlfZmz2-3Fb6nzZH00dtbDlsqBpbFTALO8ktvnXaBxv" alt="Insper logo"></img>
- </a>
- <div>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmLK7EeLlfZmz2-3Fb6nzZH00dtbDlsqBpbFTALO8ktvnXaBxv" alt="Insper logo">
+ <div align="center">
  	<h4>
  		<p>Repositório para dispositivos IoT do Laboratório de Desenvolvimento Colaborativo Ágil</p>
  	</h4>
@@ -15,12 +14,9 @@
  	<h3><p>IoT is HERE!  \o/ \o/ \o/</p></h3>
  	</div>
  	<div style="display: flex;">
-	  <img style="width: 33%;" src="https://media2.giphy.com/media/BlVnrxJgTGsUw/giphy.gif" alt="Three Jumping"></img>
-	  <img style="width: 33%;" src="https://media0.giphy.com/media/YJ5OlVLZ2QNl6/giphy.gif" alt="Baby Yeah"></img>
-	  <img style="width: 33%;" src="https://media1.giphy.com/media/XbxZ41fWLeRECPsGIJ/giphy.gif" alt="Baby Happy"></img>
+	  <img style="width: 33%;" src="https://media0.giphy.com/media/YJ5OlVLZ2QNl6/giphy.gif" alt="Baby Yeah">
 	 </div>
 </div>
-</p>
 
 
 <div align="center">  
