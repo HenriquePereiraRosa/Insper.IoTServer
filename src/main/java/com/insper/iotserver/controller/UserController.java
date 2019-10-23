@@ -23,7 +23,7 @@ import com.insper.iotserver.repository.UserRepository;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 
 	@Autowired

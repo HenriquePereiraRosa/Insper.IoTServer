@@ -10,6 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
@@ -53,15 +54,26 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 		
 		return handleExceptionInternal(ex, new ErrorMsg(userMsg, devMsg), new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
 	}
-	
-	
+
+
 	@ExceptionHandler({ ConstraintViolationException.class })
 	protected ResponseEntity<Object> handleConstraintViolationException(ConstraintViolationException ex,
-			WebRequest request) {
-		
+																		WebRequest request) {
+
 		String userMsg = messageSource.getMessage("message.id.invalid", null, LocaleContextHolder.getLocale());
 		String devMsg = String.valueOf(ex.getCause());
-		
+
+		return handleExceptionInternal(ex, new ErrorMsg(userMsg, devMsg), new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+	}
+
+
+	@ExceptionHandler({ AccessDeniedException.class })
+	protected ResponseEntity<Object> handleConstraintViolationException(AccessDeniedException ex,
+																		WebRequest request) {
+
+		String userMsg = messageSource.getMessage("message.access_denied", null, LocaleContextHolder.getLocale());
+		String devMsg = String.valueOf(ex.getCause());
+
 		return handleExceptionInternal(ex, new ErrorMsg(userMsg, devMsg), new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
 	}
 

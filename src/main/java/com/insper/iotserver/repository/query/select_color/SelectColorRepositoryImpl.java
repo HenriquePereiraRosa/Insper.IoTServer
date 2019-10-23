@@ -14,8 +14,8 @@ public class SelectColorRepositoryImpl implements SelectColorRepositoryQuery {
 
 	public List<SelectColor> getLastByDeviceId(Long deviceId) {
 		StringBuffer stmt = new StringBuffer();
-		stmt.append("Select s from Color s join s.device d "
-				+ "where d.id like " + deviceId + " order by s.id desc");
+		stmt.append("Select sc from SelectColor sc join sc.device d "
+				+ "where d.id like " + deviceId + " order by sc.id desc");
 		TypedQuery<SelectColor> q = manager.createQuery(stmt.toString(), SelectColor.class);
 		List<SelectColor> last = q.setMaxResults(1).getResultList();
 		System.out.println(last);

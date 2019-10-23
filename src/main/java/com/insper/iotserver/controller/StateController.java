@@ -25,7 +25,7 @@ import com.insper.iotserver.repository.StateRepository;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/state")
+@RequestMapping("/states")
 public class StateController {
 
 	@Autowired
