@@ -115,12 +115,12 @@ public class UserController {
 			dbObj.setEmail(obj.getEmail());
 		}
 
-		if (obj.getLab() != null) {
-			dbObj.setLab(obj.getLab());
+		if (obj.getPassword() != null) {
+			dbObj.setPassword(obj.getPassword());
 		}
 
-		if (obj.getBio() != null) {
-			dbObj.setBio(obj.getBio());
+		if (obj.getLabel() != null) {
+			dbObj.setLabel(obj.getLabel());
 		}
 
 		if (obj.getLabel() != null) {

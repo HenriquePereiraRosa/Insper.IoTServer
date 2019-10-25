@@ -1,15 +1,19 @@
 package com.insper.iotserver.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table(name="user")
-public class User {
+@Table(name="user_name")
+public class User implements UserDetails {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,11 +23,19 @@ public class User {
 	@NotNull
 	private String email;
 	@NotNull
-	private String lab;
-	private String bio;
+	private String password;
 	private String label;
-	
-	
+
+	@ManyToMany(fetch = FetchType.EAGER /* to get data earlier*/)
+	@JoinTable(name = "user_permission",
+			joinColumns = @JoinColumn(name = "id_user")
+			, inverseJoinColumns = @JoinColumn(name = "id_permission")	)
+	private List<Permission> permissions;
+
+	private Boolean accounExpiration;
+	private Boolean credentialExpiration;
+	private Boolean locked;
+	private Boolean enabled;
 	
 	public Long getId() {
 		return id;
@@ -49,20 +61,8 @@ public class User {
 		this.email = email;
 	}
 
-	public String getLab() {
-		return lab;
-	}
-
-	public void setLab(String lab) {
-		this.lab = lab;
-	}
-
-	public String getBio() {
-		return bio;
-	}
-
-	public void setBio(String bio) {
-		this.bio = bio;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getLabel() {
@@ -71,6 +71,42 @@ public class User {
 
 	public void setLabel(String label) {
 		this.label = label;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	@Override
+	public String getUsername() {
+		return this.email;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return !this.accounExpiration;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return !this.locked;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return !this.credentialExpiration;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return this.enabled;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		Set<SimpleGrantedAuthority> authorities = new HashSet<>();
+		this.permissions.forEach(p -> authorities.add(new SimpleGrantedAuthority(p.getLabel().toUpperCase())));
+		return authorities;
 	}
 
 	@Override
@@ -97,6 +133,6 @@ public class User {
 			return false;
 		return true;
 	}
-	
-	
+
+
 }
