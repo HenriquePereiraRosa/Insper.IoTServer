@@ -1,7 +1,6 @@
 package com.insper.iotserver.exceptionhandler;
 
-import java.sql.SQLIntegrityConstraintViolationException;
-
+import com.insper.iotserver.exceptionhandler.util.ErrorMsg;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.insper.iotserver.exceptionhandler.util.ErrorMsg;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 @ControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
@@ -67,14 +66,14 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 	}
 
 
-	@ExceptionHandler({ AccessDeniedException.class })
+	@ExceptionHandler({ AccessDeniedException.class }) // TODO: Not reaching this annotation
 	protected ResponseEntity<Object> handleConstraintViolationException(AccessDeniedException ex,
 																		WebRequest request) {
 
 		String userMsg = messageSource.getMessage("message.access_denied", null, LocaleContextHolder.getLocale());
 		String devMsg = String.valueOf(ex.getCause());
 
-		return handleExceptionInternal(ex, new ErrorMsg(userMsg, devMsg), new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+		return handleExceptionInternal(ex, new ErrorMsg(userMsg, devMsg), new HttpHeaders(), HttpStatus.UNAUTHORIZED, request);
 	}
 
 }

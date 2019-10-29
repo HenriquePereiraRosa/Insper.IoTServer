@@ -1,5 +1,6 @@
 package com.insper.iotserver.model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +23,8 @@ public class User implements UserDetails {
 	private String name;
 	@NotNull
 	private String email;
+
+	@JsonIgnore
 	@NotNull
 	private String password;
 	private String label;
@@ -29,7 +32,7 @@ public class User implements UserDetails {
 	@ManyToMany(fetch = FetchType.EAGER /* to get data earlier*/)
 	@JoinTable(name = "user_permission",
 			joinColumns = @JoinColumn(name = "id_user")
-			, inverseJoinColumns = @JoinColumn(name = "id_permission")	)
+			, inverseJoinColumns = @JoinColumn(name = "id_permission"))
 	private List<Permission> permissions;
 
 	private Boolean accounExpiration;

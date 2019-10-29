@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +29,9 @@ public class UserController {
 
 	@Autowired
 	private UserRepository repo;
+
+	@Autowired
+	private BCryptPasswordEncoder encoder;
 
 
 	@GetMapping
@@ -54,6 +58,7 @@ public class UserController {
 	public ResponseEntity<User> post(@RequestBody User obj, HttpServletResponse response) {
 		
 		if (obj.getId() == null) {
+			obj.setPassword(encoder.encode(obj.getPassword()));
 			User objSaved = repo.save(obj);
 
 			URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(objSaved.getId())
