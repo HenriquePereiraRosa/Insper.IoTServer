@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="insper.iotServer" target="11" />
+      <module name="insper.iotServer" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

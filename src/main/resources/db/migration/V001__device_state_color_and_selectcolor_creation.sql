@@ -40,4 +40,4 @@ INSERT INTO state (msg_code, state, date_time, id_device) VALUES ('00000', false
 
 INSERT INTO color (msg, color, date_time, id_device) VALUES ('dummy msg with max of (100)', 'FFFFFF', '2019-08-04 23:13:25', 1);
 
-INSERT INTO color (msg, color, date_time, id_device) VALUES ('dummy msg with max of (100)', 'AAAAAA', '2019-08-22 16:30:25', 1);
+INSERT INTO select_color (color, date_time, id_device) VALUES ('AAAAAA', '2019-08-22 16:30:25', 1);

@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/select_colors")
 public class SelectColorController {
 
@@ -92,7 +91,6 @@ public class SelectColorController {
 	 */
 	@PostMapping
 	public ResponseEntity<SelectColor> post(@RequestBody SelectColor obj, HttpServletResponse response) {
-		obj.setDesiredDateTime(LocalDateTime.now());
 		if (deviceRepo.findById(obj.getDevice().getId()) != null) {
 			SelectColor objSaved = repo.save(obj);
 
@@ -105,41 +103,7 @@ public class SelectColorController {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		}
 	}
-	
 
-	/**
-	 * Returns an RenponseEntity object that is the result of an  
-	 *  object updated in DB.
-	 * This method always returns immediately, whether or not the 
-	 * image exists. When this applet attempts to draw the image on
-	 * the screen, the data will be loaded. The graphics primitives 
-	 * that draw the image will incrementally paint on the screen. 
-	 *
-	 * @param  @RequestBody Color object with the attributes to update.
-	 * @return      The updated object
-	 * @see         ...
-	 */
-	@PutMapping  // Designed to Embbeded Systems
-	public ResponseEntity<SelectColor> updateColor(@RequestBody SelectColor obj,
-			HttpServletResponse response) {
-
-		SelectColor dbObj = repo.getOne(obj.getId());
-		if ((deviceRepo.findById(obj.getDevice().getId()) != null)
-				&& (dbObj != null) && (obj != null)) {
-
-			obj.setDesiredDateTime(LocalDateTime.now());
-			SelectColor objSaved = repo.save(copyObj(obj, dbObj));
-
-			URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
-					.buildAndExpand(objSaved.getId())
-					.toUri();
-			response.setHeader("Location", uri.toASCIIString());
-
-			return ResponseEntity.status(HttpStatus.OK).body(objSaved);
-		} else {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-		}
-	}
 
 	/**
 	 * Returns an RenponseEntity object that is the result of an

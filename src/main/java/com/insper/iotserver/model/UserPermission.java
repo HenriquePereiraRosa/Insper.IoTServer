@@ -1,79 +1,25 @@
 package com.insper.iotserver.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="user_permission")
 public class UserPermission {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@NotNull
-	private String name;
-	@NotNull
-	private String email;
-	@NotNull
-	private String lab;
-	private String bio;
-	private String label;
+	@Column(name = "id_user")
+	private Long idUser;
 
-	
-	
-	public Long getId() {
-		return id;
-	}
+	@Column(name = "id_permission")
+	private Long idPermission;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getLab() {
-		return lab;
-	}
-
-	public void setLab(String lab) {
-		this.lab = lab;
-	}
-
-	public String getBio() {
-		return bio;
-	}
-
-	public void setBio(String bio) {
-		this.bio = bio;
-	}
-
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
-	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((idUser == null) ? 0 : idUser.hashCode());
 		return result;
 	}
 
@@ -86,10 +32,10 @@ public class UserPermission {
 		if (getClass() != obj.getClass())
 			return false;
 		UserPermission other = (UserPermission) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (idUser == null) {
+			if (other.idUser != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!idUser.equals(other.idUser))
 			return false;
 		return true;
 	}

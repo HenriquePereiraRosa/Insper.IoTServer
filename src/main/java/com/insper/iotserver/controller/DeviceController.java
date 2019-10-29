@@ -22,7 +22,6 @@ import com.insper.iotserver.model.Device;
 import com.insper.iotserver.repository.DeviceRepository;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/devices")
 public class DeviceController {
 

@@ -36,7 +36,6 @@ import com.insper.iotserver.repository.DeviceRepository;
  * @see         ...
  */
 @RestController
-@CrossOrigin
 @RequestMapping("/colors")
 public class ColorController {
 

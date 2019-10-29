@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,19 +23,21 @@ import com.insper.iotserver.model.User;
 import com.insper.iotserver.repository.UserRepository;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/users")
 public class UserController {
 
 	@Autowired
 	private UserRepository repo;
 
+
 	@GetMapping
+	@PreAuthorize("hasAuthority('ROLE_READ_USER')")
 	public List<User> get() {
 		return repo.findAll();
 	}
 
 	@GetMapping("/last")
+	@PreAuthorize("hasAuthority('ROLE_READ_USER')")
 	public User getLast() {
 		List<User> list = repo.findAll();
 		return list.get(list.size() - 1);
@@ -47,6 +50,7 @@ public class UserController {
 	}
 
 	@PostMapping
+	@PreAuthorize("hasAuthority('ROLE_CREATE_USER')")
 	public ResponseEntity<User> post(@RequestBody User obj, HttpServletResponse response) {
 		
 		if (obj.getId() == null) {
@@ -75,7 +79,8 @@ public class UserController {
 	 * @return      The updated object
 	 * @see         ...
 	 */
-	@PutMapping  // Designed to Embbeded Systems
+	@PutMapping
+	@PreAuthorize("hasAuthority('ROLE_UPDATE_USER')")
 	public ResponseEntity<User> update(@RequestBody User obj,
 			HttpServletResponse response) {
 

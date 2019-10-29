@@ -5,24 +5,17 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="color")
+@Table(name="select_color")
 public class SelectColor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String msg;
 	private String color;
 	
 	@Column(name = "date_time")
 	private LocalDateTime dateTime;
-	
-	@Column(name = "desired_color")
-	private String desiredColor;
-	
-	@Column(name = "desired_date_time")
-	private LocalDateTime desiredDateTime;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_device")
 	@NotNull
@@ -35,14 +28,6 @@ public class SelectColor {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getMsg() {
-		return msg;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
 	}
 
 	public String getColor() {
@@ -59,22 +44,6 @@ public class SelectColor {
 
 	public void setDateTime(LocalDateTime dateTime) {
 		this.dateTime = dateTime;
-	}
-
-	public String getDesiredColor() {
-		return desiredColor;
-	}
-
-	public void setDesiredColor(String desiredColor) {
-		this.desiredColor = desiredColor;
-	}
-
-	public LocalDateTime getDesiredDateTime() {
-		return desiredDateTime;
-	}
-
-	public void setDesiredDateTime(LocalDateTime desiredDateTime) {
-		this.desiredDateTime = desiredDateTime;
 	}
 	
 	public Device getDevice() {

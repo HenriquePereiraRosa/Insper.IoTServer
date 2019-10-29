@@ -1,4 +1,4 @@
-CREATE TABLE user_name (
+CREATE TABLE user_system (
 	id BIGINT(20) PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(15) NOT NULL,
     email VARCHAR(50) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE lab (
     name VARCHAR(15) NOT NULL,
     label VARCHAR(100),
     id_user BIGINT(20) NOT NULL,
-    FOREIGN KEY (id_user) REFERENCES user_name(id)
+    FOREIGN KEY (id_user) REFERENCES user_system(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 CREATE TABLE permission (
@@ -27,14 +27,14 @@ CREATE TABLE user_permission (
 	id_user BIGINT(20) NOT NULL AUTO_INCREMENT,
 	id_permission BIGINT(20) NOT NULL,
 	PRIMARY KEY (id_user, id_permission),
-	FOREIGN KEY (id_user) REFERENCES user_name(id),
+	FOREIGN KEY (id_user) REFERENCES user_system(id),
 	FOREIGN KEY (id_permission) REFERENCES permission(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- "admin"
-INSERT INTO user_name (name, email, pass) values ('admin', 'admin@server.com', '$2a$10$2KMEwRxVNtYyJxSsm5n.7uGBln75EhCygsVfQ4daKBAf9Qu.EtQXO');
+INSERT INTO user_system (name, email, pass) values ('admin', 'admin@server.com', '$2a$10$2KMEwRxVNtYyJxSsm5n.7uGBln75EhCygsVfQ4daKBAf9Qu.EtQXO');
 -- "user"
-INSERT INTO user_name (name, email, pass) values ('user', 'user@server.com', '$2a$10$E3f7e3XzIEomHUEO8SfH4eay4na4zuLDcupfdmM.FRc/6Bg.ZTtVC');
+INSERT INTO user_system (name, email, pass) values ('user', 'user@server.com', '$2a$10$E3f7e3XzIEomHUEO8SfH4eay4na4zuLDcupfdmM.FRc/6Bg.ZTtVC');
 
 INSERT INTO lab (name, label, id_user) VALUES ('dummy lab', 'dummy label', 1);
 

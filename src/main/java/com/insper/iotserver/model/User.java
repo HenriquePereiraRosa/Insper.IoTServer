@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name="user_name")
+@Table(name="user_system")
 public class User implements UserDetails {
 	
 	@Id
